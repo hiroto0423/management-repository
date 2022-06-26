@@ -82,6 +82,7 @@ class UserController extends Controller
     {
         //dd($user);
         return view('users/invited',compact('user'));
+        
     }
     
     public function profile_create()
