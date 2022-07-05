@@ -17,10 +17,12 @@ class CreateEventsTable extends Migration
             $table->Increments('id');
             $table->string('title',50);
             $table->string('body',200);
-            $table->string('when',50);
+            $table->string('start_time',50);
+            $table->string('end_time',50);
             $table->string('where',50);
             $table->integer('user_id')->unsigned();
             $table->integer('group_id')->unsigned();
+            $table->string('google_calendar_id')->nullable();
             $table->string('others',200);
             $table->timestamps();
             $table->softDeletes();

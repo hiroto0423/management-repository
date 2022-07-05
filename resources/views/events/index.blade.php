@@ -10,6 +10,7 @@
     <a href="top/{{Auth::user()->id}}">[マイページ]</a>
     <a href="/groups">[グループ]</a>
     <a href="/users">[ユーザー検索]</a>
+    <a href="https://calendar.google.com/calendar/embed?src=82o6p1otqb908oecqaa5883phc%40group.calendar.google.com&ctz=Asia%2FTokyo">[カレンダー]</a>
     <p class="create">[<a href="/top/event/create">イベント作成</a>]</p>
     <h1>投稿一覧</h1>
         <div class='events'>

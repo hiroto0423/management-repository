@@ -12,7 +12,8 @@
             
             <h2 class='title'>{{ $event->title }}</h2>
             <p class='body'>{{ $event->body }}</p>
-            <p class='when'>日程:{{ $event->when }}</p>
+            <p class='start_time'>開始時間:{{ $event->start_time }}</p>
+            <p class='end_time'>終了時間：{{$event->end_time}}</p>
             <p class='where'>場所：{{ $event->where }}</p>
             <p class='others'>その他:{{ $event->others }}</p>
             <p class='group'>グループ名：{{$event->group->name}}</p>

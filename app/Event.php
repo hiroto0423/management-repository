@@ -14,11 +14,13 @@ class Event extends Model
     protected $fillable=[
         'title',
         'body',
-        'when',
+        'start_time',
+        'end_time',
         'where',
         'others',
         'user_id',
-        'group_id'
+        'group_id',
+        'google_calendar_id'
         ];
         
     public function user()

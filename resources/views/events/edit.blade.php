@@ -21,9 +21,13 @@
                 <input type="text"name="event[body]"placeholder="みんなで楽しくご飯を食べましょう"value='{{$event->body}}'/>
             </div>
 
-            <div class="when">
-                <h2>日程</h2>
-                <input type="text"name="event[when]"placeholder="明日"value='{{$event->when}}'/>
+            <div class="start_time">
+                <h2>開始時間</h2>
+                <input type="datetime-local"name="event[start_time]"/>
+            </div>
+            <div class="end_time">
+                <h2>終了時間</h2>
+                <input type="datetime-local"name="event[end_time]"/>
             </div>
             <div class="where">
                 <h2>開催場所</h2>

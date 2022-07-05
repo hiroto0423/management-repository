@@ -11,8 +11,7 @@
         <h2>{{$user->name}}</h2>
             <ul>
             @foreach($user->groups as $group)
-            <p> {{$group->id}}, {{$group->confirmed}}</p>
-                <?php if ((int)$group->confirmed === 0):?> 
+                <?php if ($group->pivot->confirmed === 0):?> 
                     <p>{{$group->id}}</p>
                     <li>{{$group->name}}</li>
                      <form action="/users/{{$user->id}}/invited"id="form_delete_{{$group->id}}" method="post">

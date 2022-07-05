@@ -58,12 +58,10 @@ use App\Http\Controllers\EventController;
  Route::delete('/top/{user}','UserController@profile_destroy');
  Route::get('top/{user}/groups','UserController@profile_groups');
  
-
- 
  Route::post('/top/{user}','UserController@profile_store');
      
      
-
+ Route::get('/test','EventController@google_calendar');
 
 Auth::routes();
 

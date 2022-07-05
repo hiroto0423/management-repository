@@ -25,9 +25,13 @@
                 //作成者は元々ログインユーザーと決まっているため、typeはhiddenとする
                 
             </div>
-            <div class="when">
-                <h2>日程</h2>
-                <input type="text"name="event[when]"placeholder="明日"/>
+            <div class="start_time">
+                <h2>開始時間</h2>
+                <input type="datetime-local"name="event[start_time]"/>
+            </div>
+            <div class="end_time">
+                <h2>終了時間</h2>
+                <input type="datetime-local"name="event[end_time]"/>
             </div>
             <div class="where">
                 <h2>開催場所</h2>
@@ -44,6 +48,9 @@
                   <option value="{{$group->id}}">{{$group->name}}</option>
                 @endforeach
             </select>
+            <div class"google_calendar_id">
+                <input type="hidden"name="event[google_calendar_id]"value={{$event->google_calendar_id}}>
+            </div>
             <input type="submit"value="store"/>
         </form>
         <div class="back">[<a href="/top">戻る</a>]</div>
