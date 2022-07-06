@@ -81,7 +81,7 @@ class UserController extends Controller
     public function invited(User $user)
     {
         //dd($user);
-        return view('users/invited',compact('user'));
+        return view('users/invited',compact('user'))->with(['profile_groups'=>$user->groups])->with(['group_users'=>$user]);
         
     }
     
