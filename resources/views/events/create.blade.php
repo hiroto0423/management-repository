@@ -21,9 +21,6 @@
             <div class="name">
                 <h2>作成者</h2>
                 <p>{{\Auth::user()->name}}</p>
-                <input name="event[user_id]" type="hidden" value='{{\Auth::user()->id}}' >
-                //作成者は元々ログインユーザーと決まっているため、typeはhiddenとする
-                
             </div>
             <div class="start_time">
                 <h2>開始時間</h2>

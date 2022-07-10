@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Group;
+use App\Event;
 
 class GroupController extends Controller
 {
@@ -54,6 +55,8 @@ class GroupController extends Controller
     
     public function event (Group $group)
     {
-        return view('groups/event',compact('group'))->with(['events'=>$group->events]);
+        
+       //dd($group->events);
+        return view('groups/event',compact('group'))->with(['group_events'=>$group->events]);
     }
 }

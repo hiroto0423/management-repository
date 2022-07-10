@@ -8,13 +8,15 @@
     </head>
     <body>
         <h1>あなたの所属グループ</h1>
-            @foreach ($profile_groups as $profile_group)
-                <?php if ($profile_group->confirmed == 1): ?> 
-                    <div class='groups'>
-                        //if文で　accsepted　がtureだったら表示するようう後ほど変更
-                        <a href="/groups/{{$profile_group->id}}">{{ $profile_group->name }}</a>
-                    </div>
-                <?php endif; ?>
-            @endforeach
+        <h2>{{$user->name}}</h2>
+            <ul>
+            @foreach($user->groups as $group)
+                <?php if ($group->pivot->confirmed === 1):?> 
+                    <p>{{$group->id}}</p>
+                    <li>{{$group->name}}</li>
+                    <a href="/groups/{{$group->id}}/event">イベント一覧</a>
+                <?php endif;?>
+             @endforeach
+            </ul>
     </body>
 </html>

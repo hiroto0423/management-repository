@@ -24,7 +24,8 @@ use App\Http\Controllers\EventController;
  Route::delete('/groups/{group}','GroupController@destroy');
  Route::get('/groups/{group}/edit','GroupController@edit');
  Route::post('/groups','GroupController@store');
- Route::get('/groups/{gorup}/enent','GroupController@event');
+ Route::get('/groups/{group}/event','GroupController@event');
+
  
 
  
@@ -44,6 +45,9 @@ use App\Http\Controllers\EventController;
  Route::post('/users/{user}/follow', 'UserController@follow')->name('follow');
  Route::post('/users/{user}/unfollow', 'UserController@unfollow')->name('unfollow');
  
+ Route::post('/event_attend','UserController@event_attend');
+ Route::post('/event_unattend','UserController@event_unattend');
+
  Route::get('/top','EventController@index');
  Route::get('/top/event/create','EventController@create');
  Route::get('/top/event/{event}','EventController@show');
@@ -51,6 +55,7 @@ use App\Http\Controllers\EventController;
  Route::post('/top','EventController@store');
  Route::get('/top/event/{event}/edit','EventController@edit');
  
+
  
  Route::get('/top/{user}/create','UserController@profile_create');
  Route::get('/top/{user}/edit','UserController@profile_edit');
@@ -59,7 +64,6 @@ use App\Http\Controllers\EventController;
  Route::get('top/{user}/groups','UserController@profile_groups');
  
  Route::post('/top/{user}','UserController@profile_store');
-     
      
  Route::get('/test','EventController@google_calendar');
 

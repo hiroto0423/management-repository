@@ -23,8 +23,10 @@ class Event extends Model
         'google_calendar_id'
         ];
         
-    public function user()
+    public function users()
     {
-          return $this->belongsTo('App\User');
+          return $this->belongsToMany('App\User');
     }
+    
+
 }

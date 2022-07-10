@@ -21,14 +21,14 @@ class EventController extends Controller
         return view('events/index')->with(['events'=>$event->get()]);
     }
     
-    public function show(Event $event,Group $group)
+    public function show(Event $event,Group $group,User $user)
     {
-        return view('events/show',compact('event','group'));
+        //dd($event->users);
+        return view('events/show',compact('event','group','user'));
     }
     
     public function create(Event $event,User $user)
     {
-        
         //多対多のリレーション（groups,users)
         return view('events/create',compact('event'))->with(['groups'=>\Auth::user()->groups]);
     }
@@ -70,7 +70,8 @@ class EventController extends Controller
         $new_event = $google_event->save();
         return redirect('/top/event/'.$event->id);
     }
-    
+ 
+
     
     
 }

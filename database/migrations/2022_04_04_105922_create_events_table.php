@@ -20,7 +20,6 @@ class CreateEventsTable extends Migration
             $table->string('start_time',50);
             $table->string('end_time',50);
             $table->string('where',50);
-            $table->integer('user_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->string('google_calendar_id')->nullable();
             $table->string('others',200);
