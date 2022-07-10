@@ -82,11 +82,18 @@ class User extends Authenticatable
                     
     }
     
-    public function group_user()
+   public function events()
+   {
+       return $this->belongsToMany('App\Event');
+   }
+   
+    public function is_attended()
     {
-        
+        return $user->events()->where('event_id',$event->id)->exists();
     }
+    
 
- 
+   
+
 
 }

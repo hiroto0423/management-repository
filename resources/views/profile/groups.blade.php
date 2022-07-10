@@ -14,6 +14,7 @@
                 <?php if ($group->pivot->confirmed === 1):?> 
                     <p>{{$group->id}}</p>
                     <li>{{$group->name}}</li>
+                    <a href="/groups/{{$group->id}}/event">イベント一覧</a>
                 <?php endif;?>
              @endforeach
             </ul>

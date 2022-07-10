@@ -9,6 +9,7 @@ use App\Group;
 use DB;
 use Illuminate\Support\Arr;
 
+
 class UserController extends Controller
 {
    
@@ -163,4 +164,24 @@ class UserController extends Controller
                 ->update(['confirmed' => 1]);
          return redirect('/users/'.$user->id);       
     }
+    
+    public function event_attend(User $user , Request $request)
+    {
+        $input_event = $request['event_id'];
+
+        \Auth::user()->events()->attach($input_event); 
+        return redirect('/top/event/'.$input_event);
+    }
+   public function event_unattend(User $user , Request $request)
+   {
+      $input_event = $request['event_id'];
+      //dd($input_event);
+      DB::table('event_user')
+        ->where('user_id',\Auth::user()->id)
+        ->where('event_id', $input_event)
+        ->delete();     
+         return redirect('/top/event/'.$input_event);
+   }
+
+    
 }

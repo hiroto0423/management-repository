@@ -55,7 +55,8 @@ class GroupController extends Controller
     
     public function event (Group $group)
     {
-        //dd($group->events);
+        
+       //dd($group->events);
         return view('groups/event',compact('group'))->with(['group_events'=>$group->events]);
     }
 }
