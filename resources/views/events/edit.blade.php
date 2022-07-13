@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@extends('layouts.app')　
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -50,3 +51,4 @@
         <div class="back">[<a href="/groups/{{$group->id}}">back</a>]</div>
     </body>
 </html>
+@endsection
