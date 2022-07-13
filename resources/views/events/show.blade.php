@@ -32,6 +32,11 @@
             <button>参加する</button>
             </form>
           @endif
+        <form action='/top/event/{{$event->id}}'id='form_{{ $event->id }}' method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit">消去</button> 
+        </form>
         <a href='/top/'>戻る</a>
     </body>
 </html>

@@ -54,6 +54,7 @@ use App\Http\Controllers\EventController;
  Route::put('/top/event/{event}','EventController@update');
  Route::post('/top','EventController@store');
  Route::get('/top/event/{event}/edit','EventController@edit');
+ Route::delete('/top/event/{event}','EventController@delete');
  
 
  

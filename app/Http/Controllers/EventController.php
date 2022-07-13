@@ -67,6 +67,11 @@ class EventController extends Controller
         $new_event = $google_event->save();
         return redirect('/top/event/'.$event->id);
     }
+    public function delete(Event $event)
+    {
+        $event->delete();
+        return redirect('/top');    
+    }
  
 
     
