@@ -16,11 +16,6 @@
                 <p class='where'>場所：{{ $group_event->where }}</p>
                 <p class='others'>その他:{{ $group_event->others }}</p>
             </div>
-
         @endforeach
-        
-        
-        
-
     </body>
 </html>

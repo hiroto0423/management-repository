@@ -18,8 +18,7 @@
             <p class='others'>その他:{{ $event->others }}</p>
             <p class='group'>グループ名：{{$event->group->name}}</p>
         </div>
-
-
+        
         @if(\Auth::user()->events()->where('event_id',$event->id)->exists())
          <form action="/event_unattend"method="POST">
              @csrf
@@ -33,8 +32,6 @@
             <button>参加する</button>
             </form>
           @endif
-       
-        
         <a href='/top/'>戻る</a>
     </body>
 </html>

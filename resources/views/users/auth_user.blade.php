@@ -7,13 +7,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        
         <P>{{ $user->name }}</p>
         <P>{{ $user->body }}</p>
         <p>[<a href='/users/{{$user->id}}/invited'>招待リクエスト一覧</a>]</p>
         <a href='/users/{{$user->id}}/followedusers'>フォロワ―</a>
         <a href='/users/{{$user->id}}/followingusers'>フォロー中</a>
-
         <div>
         @if($user->is_liked_by_auth_user())
          <form action="{{ route('unfollow', ['user' => $user->id]) }}"method="POST">
@@ -27,6 +25,5 @@
             </form>
           @endif
         </div>
-
     </body>
 </html>

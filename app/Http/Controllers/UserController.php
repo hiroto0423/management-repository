@@ -15,13 +15,8 @@ class UserController extends Controller
    
     public function index(User $user,Request $request)
     {
-         
-         
         $keyword = $request->input('keyword');
-     
-    
         $query = User::query();
-    
         if (!empty($keyword)) {
             $query->where('name', 'LIKE', "%{$keyword}%");
         }
@@ -58,16 +53,9 @@ class UserController extends Controller
      public function follow(User $user) 
      {
          $user->followUsers()->attach(\Auth::id());
-       // $follow = Follow::create([
-           // 'following_user_id' => \Auth::user()->id,
-        //    'followed_user_id' => $user->id,
-        // ]);
-        
-        
         $followCount = count(Follow::where('followed_user_id', $user->id)->get());
         //dd($user->is_liked_by_auth_user());
         return view('/users/show',compact('followCount','user'));
-        
     }
 
     public function unfollow(User $user) 
@@ -83,7 +71,6 @@ class UserController extends Controller
     {
         //dd($user);
         return view('users/invited',compact('user'))->with(['profile_groups'=>$user->groups])->with(['group_users'=>$user]);
-        
     }
     
     public function profile_create()
@@ -119,34 +106,28 @@ class UserController extends Controller
    public function profile_groups(User $user, Group $group)
    {
         //dd($user->id);
-      
        return view('profile/groups',compact('user'))->with(['profile_groups'=>$user->groups])->with(['group_users'=>$user]);
-       
    }
    
 
    
    public function invite (User $user,Group $group)
    {
-       return view('users/invite',compact('user'))->with(['groups'=>\Auth::user()->groups]);
+        return view('users/invite',compact('user'))->with(['groups'=>\Auth::user()->groups]);
    }
     
     public function invited_post(User $user,Request $request)
    {
-       $input_groups=$request->groups_array;
-       $input_users=$request['user'];
-       
-      
-       $user->fill($input_users)->save();
-       $user->groups()->attach($input_groups);
-       //中間テーブルへの保存はattachメゾットを使用  
-    return redirect('/users/'.$user->id);
-       
+        $input_groups=$request->groups_array;
+        $input_users=$request['user'];
+        $user->fill($input_users)->save();
+        $user->groups()->attach($input_groups);
+        //中間テーブルへの保存はattachメゾットを使用  
+        return redirect('/users/'.$user->id);
    }
    
    public function invited_delete(User $user,Request $request)
     {
-        
         $input_group=$request['delete_group'];
         DB::table('group_user')
                 ->where('user_id',$user->id)
@@ -157,21 +138,21 @@ class UserController extends Controller
     
     public function invited_comfirmed(User $user,Request $request)
     {
-      $input_group=$request['group'];
+        $input_group=$request['group'];
             DB::table('group_user')
                 ->where('user_id',$user->id)
                 ->where('group_id',$input_group)
                 ->update(['confirmed' => 1]);
-         return redirect('/users/'.$user->id);       
+        return redirect('/users/'.$user->id);       
     }
     
     public function event_attend(User $user , Request $request)
     {
         $input_event = $request['event_id'];
-
         \Auth::user()->events()->attach($input_event); 
         return redirect('/top/event/'.$input_event);
     }
+    
    public function event_unattend(User $user , Request $request)
    {
       $input_event = $request['event_id'];
@@ -182,6 +163,4 @@ class UserController extends Controller
         ->delete();     
          return redirect('/top/event/'.$input_event);
    }
-
-    
 }

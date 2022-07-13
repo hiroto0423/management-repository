@@ -6,7 +6,6 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
-    
     <body>
         <h1>プロフィール</h1>
         <a href="/top/{{Auth::user()->id}}/create">作成</a>
@@ -17,18 +16,12 @@
             <input type="submit"style="display:none">
             <p class='delete'>[<span onclick="return deleteUsers(this);">delete</span>]</p>
         </form>
-        
         <h2>名前：{{$user->name}}</h2>
         <P>{{$user->body}}</p>
         <p>[<a href='/users/{{$user->id}}/invited'>招待リクエスト一覧</a>]</p>
         <a href='/users/{{$user->id}}/followedusers'>フォロワ―</a>
         <a href='/users/{{$user->id}}/followingusers'>フォロー中</a>
-        
         <a href='/top/{{$user->id}}/groups'>所属しているグループ</a>
-
-        
-        <p>aiueo</p>
-        
         <script>
             function deleteUsers(e){
                 'use script';
@@ -37,6 +30,5 @@
                 }
             }
         </script>
-
     </body>
 </html>
