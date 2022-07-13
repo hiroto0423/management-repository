@@ -10,9 +10,6 @@ use App\User;
 use Spatie\GoogleCalendar\Event as Google_event;
 use Carbon\Carbon;
 
-
-
-
 class EventController extends Controller
 {
 

@@ -27,6 +27,4 @@ class Event extends Model
     {
           return $this->belongsToMany('App\User');
     }
-    
-
 }

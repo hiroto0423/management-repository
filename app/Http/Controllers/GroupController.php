@@ -44,8 +44,8 @@ class GroupController extends Controller
     
     public function destroy(Group $group)
     {
-    $group->delete();
-    return redirect('/groups');
+        $group->delete();
+        return redirect('/groups');
     }
     
     public function invite (Group $group , User $user)
@@ -55,7 +55,6 @@ class GroupController extends Controller
     
     public function event (Group $group)
     {
-        
        //dd($group->events);
         return view('groups/event',compact('group'))->with(['group_events'=>$group->events]);
     }
